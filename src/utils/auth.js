@@ -3,13 +3,22 @@ import { navigate } from "gatsby"
 
 const isBrowser = typeof window !== "undefined"
 
-const auth = new auth0.WebAuth({
-  domain: process.env.AUTH0_DOMAIN,
-  clientID: process.env.AUTH0_CLIENTID,
-  redirectUri: process.env.AUTH0_CALLBACK,
-  responseType: "token id_token",
-  scope: "openid profile email",
-})
+const domain = process.env.AUTH0_DOMAIN
+console.log("TCL: domain", domain)
+const clientID = process.env.AUTH0_CLIENTID
+console.log("TCL: clientID", clientID)
+const redirectUri = process.env.AUTH0_CALLBACK
+console.log("TCL: redirectUri", redirectUri)
+
+const auth = isBrowser
+  ? new auth0.WebAuth({
+      domain: process.env.AUTH0_DOMAIN,
+      clientID: process.env.AUTH0_CLIENTID,
+      redirectUri: process.env.AUTH0_CALLBACK,
+      responseType: "token id_token",
+      scope: "openid profile email",
+    })
+  : {}
 
 const tokens = {
   accessToken: false,
