@@ -3,13 +3,6 @@ import { navigate } from "gatsby"
 
 const isBrowser = typeof window !== "undefined"
 
-const domain = process.env.GATSBY_AUTH0_DOMAIN
-console.log("TCL: domain", domain)
-const clientID = process.env.GATSBY_AUTH0_CLIENTID
-console.log("TCL: clientID", clientID)
-const redirectUri = process.env.GATSBY_AUTH0_CALLBACK
-console.log("TCL: redirectUri", redirectUri)
-
 const auth = isBrowser
   ? new auth0.WebAuth({
       domain: process.env.GATSBY_AUTH0_DOMAIN,
