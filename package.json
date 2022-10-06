@@ -20,7 +20,7 @@
     "gatsby": "^4.6.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "snyk": "^1.685.0"
+    "snyk": "^1.996.0"
   },
   "devDependencies": {
     "prettier": "^1.18.2"
